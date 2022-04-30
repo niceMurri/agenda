@@ -1,0 +1,58 @@
+<%- include('./includes/header.ejs') %> <%- include('./includes/navbar.ejs') %>
+
+<div class="container my-3">
+  <div class="row">
+    <div class="mx-auto col-lg-8">
+      <h1 class="text-center">Criar conta ou Entrar</h1>
+      <p class="text-center mb-4">Faça login ou crie sua conta.</p>
+
+     
+      <div class="row">
+        <div class="col-lg">
+          <h4>Faça seu cadastro</h4>
+          <p>Se você ainda não tem conta, preencha o formulário abaixo.</p>
+
+          <form action="/login/cadastrar" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %> ">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="emailReg" placeholder="nome@exemplo.com" name="emailReg">
+              <label for="emailReg">Endereço de email</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="passwordReg" placeholder="Password" name="passwordReg">
+              <label for="passwordReg">Endereço de email</label>
+            </div>
+
+            <button class="btn btn-primary my-3" type="submit">Cadastrar</button>
+          </form>
+
+          <form action="/" method="post">
+            <input type="hidden" name="_csrf" class="_csrf" id="_csrf"  value="<%= csrfToken %> ">
+            <input type="number" placeholder="Tudo bem" name="showdebola">
+            <button>eae</button>
+          </form>
+        </div>
+        <div class="col-lg">
+          <h4>Faça seu login</h4>
+          <p>Se você já tem uma conta.<br>faça login abaixo.</p>
+
+          <form action="/login/login" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %> ">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="emailReg" placeholder="nome@exemplo.com" name="emailReg">
+              <label for="emailReg">Endereço de email</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="passwordReg" placeholder="Password" name="passwordReg">
+              <label for="passwordReg">Endereço de email</label>
+            </div>
+
+            <button class="btn btn-primary mt-3" type="submit">Entrar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./includes/footer.ejs') %>

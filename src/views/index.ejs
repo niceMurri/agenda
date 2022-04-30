@@ -1,0 +1,44 @@
+<%- include('./includes/header.ejs') %> <%- include('./includes/navbar.ejs') %>
+
+<div class="container my-3">
+  <div class="row">
+    <div class="mx-auto col-lg-8">
+      <h1 class="text-center">Agenda</h1>
+      <p class="text-center mb-4">Seus contatos estão abaixo</p>
+
+      <div class="alert alert-danger" role="alert">Um erro qualquer</div>
+
+      <div class="table-responsive ">
+        <table class="table mt-4">
+          <tr>
+            <td>Luiz</td>
+            <td>Otavio</td>
+            <td>73999884466</td>
+            <td>ijasdoijadij@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Luiz</td>
+            <td>Otavio</td>
+            <td>73999884466</td>
+            <td>ijasdoijadij@gmail.com</td>
+          </tr>
+          <tr>
+            <td>Luiz</td>
+            <td>Otavio</td>
+            <td>73999884466</td>
+            <td>ijasdoijadij@gmail.com</td>
+          </tr>
+        </table>
+
+        
+        <form action="/doido" method="post">
+          <input type="hidden" name="_csrf" class="_csrf" id="_csrf"  value="<%= csrfToken %> ">
+          <input type="number" placeholder="Tudo bem" name="showdebola">
+          <button>eae</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('./includes/footer.ejs') %>
