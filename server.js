@@ -20,9 +20,9 @@ const MongoStore = require('connect-mongo');
 const csrf = require('csurf');
 //const helmet = require('helmet');
 const routes = require('./routes.js');
-const { checkErrCsrf, csrfMiddleware } = require('./src/middlewares/middlewaresGlobal.js');
+const {  middlewaresGlobal, checkErrCsrf, csrfMiddleware } = require('./src/middlewares/middlewaresGlobal.js');
 
-
+app.use(flash())
 //app.use(helmet());
 
 app.use(express.urlencoded({extended: false}));
@@ -45,7 +45,7 @@ const sessionOptions = session({
 
 app.use(sessionOptions);
 
-
+app.use(middlewaresGlobal);
 
 app.use(csrf());
 app.use(checkErrCsrf);
@@ -53,6 +53,8 @@ app.use(csrfMiddleware);
 
 
 app.use(routes);
+
+
 
 //add routes
 

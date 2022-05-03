@@ -6,37 +6,41 @@
       <h1 class="text-center">Agenda</h1>
       <p class="text-center mb-4">Seus contatos estão abaixo</p>
 
-      <div class="alert alert-danger" role="alert">Um erro qualquer</div>
-
-      <div class="table-responsive ">
+      <%- include('./includes/messages.ejs') %> 
+      <% if(contacts){ %>
+      <div class="table-responsive">
         <table class="table mt-4">
           <tr>
-            <td>Luiz</td>
-            <td>Otavio</td>
-            <td>73999884466</td>
-            <td>ijasdoijadij@gmail.com</td>
+            <th>Nome</th>
+            <th>Sobrenome</th>
+            <th>Telefone</th>
+            <th>email</th>
+            <th></th>
+            <th></th>
           </tr>
+          <% contacts.forEach(contact => {%>
           <tr>
-            <td>Luiz</td>
-            <td>Otavio</td>
-            <td>73999884466</td>
-            <td>ijasdoijadij@gmail.com</td>
+            <td><%= contact.nome %></td>
+            <td><%= contact.sobrenome %></td>
+            <td><%= contact.telefone %></td>
+            <td><%= contact.email %></td>
+            <td>
+              <a class="link-primary" href="/contact/index/<%- contact._id %>"
+                >editar</a
+              >
+            </td>
+            <td>
+              <a class="link-danger" href="/contact/delete/<%- contact._id %>"
+                >excluir</a
+              >
+            </td>
           </tr>
-          <tr>
-            <td>Luiz</td>
-            <td>Otavio</td>
-            <td>73999884466</td>
-            <td>ijasdoijadij@gmail.com</td>
-          </tr>
+          <% })} %>
         </table>
-
-        
-        <form action="/doido" method="post">
-          <input type="hidden" name="_csrf" class="_csrf" id="_csrf"  value="<%= csrfToken %> ">
-          <input type="number" placeholder="Tudo bem" name="showdebola">
-          <button>eae</button>
-        </form>
       </div>
+      <% if(contacts.length == 0){ %> 
+        <p class="text-center">Não existe contatos ainda.</p>
+      <% }%>
     </div>
   </div>
 </div>

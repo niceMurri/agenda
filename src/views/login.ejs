@@ -1,4 +1,5 @@
-<%- include('./includes/header.ejs') %> <%- include('./includes/navbar.ejs') %>
+<%- include('./includes/header.ejs') %> 
+<%- include('./includes/navbar.ejs') %>
 
 <div class="container my-3">
   <div class="row">
@@ -6,30 +7,26 @@
       <h1 class="text-center">Criar conta ou Entrar</h1>
       <p class="text-center mb-4">Faça login ou crie sua conta.</p>
 
-     
+      <%- include('./includes/messages.ejs') %> 
+
       <div class="row">
         <div class="col-lg">
           <h4>Faça seu cadastro</h4>
           <p>Se você ainda não tem conta, preencha o formulário abaixo.</p>
 
-          <form action="/login/cadastrar" method="post">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %> ">
+          <form action="/login/register" method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="emailReg" placeholder="nome@exemplo.com" name="emailReg">
+              <input type="email" class="form-control" id="emailReg" placeholder="nome@exemplo.com" name="email">
               <label for="emailReg">Endereço de email</label>
             </div>
             <div class="form-floating">
-              <input type="password" class="form-control" id="passwordReg" placeholder="Password" name="passwordReg">
-              <label for="passwordReg">Endereço de email</label>
+              <input type="password" class="form-control" id="passwordReg" placeholder="Password" name="password">
+              <label for="passwordReg">Senha</label>
+              <p class="text-muted fs-6 text">A senha deve conter no mínimo 6 caracteres.</p>
             </div>
 
             <button class="btn btn-primary my-3" type="submit">Cadastrar</button>
-          </form>
-
-          <form action="/" method="post">
-            <input type="hidden" name="_csrf" class="_csrf" id="_csrf"  value="<%= csrfToken %> ">
-            <input type="number" placeholder="Tudo bem" name="showdebola">
-            <button>eae</button>
           </form>
         </div>
         <div class="col-lg">
@@ -37,17 +34,17 @@
           <p>Se você já tem uma conta.<br>faça login abaixo.</p>
 
           <form action="/login/login" method="post">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %> ">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="emailReg" placeholder="nome@exemplo.com" name="emailReg">
+              <input type="email" class="form-control" id="emailReg" placeholder="nome@exemplo.com" name="email">
               <label for="emailReg">Endereço de email</label>
             </div>
             <div class="form-floating">
-              <input type="password" class="form-control" id="passwordReg" placeholder="Password" name="passwordReg">
+              <input type="text" class="form-control" id="passwordReg" placeholder="Password" name="password">
               <label for="passwordReg">Endereço de email</label>
             </div>
 
-            <button class="btn btn-primary mt-3" type="submit">Entrar</button>
+            <button class="btn btn-primary mt-3" type="submit">Esntrar</button>
           </form>
         </div>
       </div>

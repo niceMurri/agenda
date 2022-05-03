@@ -1,0 +1,15 @@
+<% if(errors.length > 0){%>
+    <div class="alert alert-danger" role="alert">
+        <% for(const value of errors){ %> 
+            <%= value %> </br>
+        <% } %> 
+    </div>
+<% } %> 
+
+<% if(success.length > 0){%>
+    <div class="alert alert-success" role="alert">
+        <% for(const value of success){ %> 
+            <%= value %> </br>
+        <% } %> 
+    </div>
+<% } %> 
